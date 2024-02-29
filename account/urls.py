@@ -12,7 +12,7 @@ urlpatterns = [
     # url-адреса смены пароля.
     path(
         'password-change/',
-        auth_views.PasswordChangeView.as_views(),
+        auth_views.PasswordChangeView.as_view(),
         name='password_change'
     ),
     path(
