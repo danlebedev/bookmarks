@@ -7,7 +7,7 @@ class Image(models.Model):
     user = models.ForeignKey(
         settings.AUTH_USER_MODEL,
         related_name='images_created',
-        on_delate=models.CASCADE,
+        on_delete=models.CASCADE,
     )
     title = models.CharField(max_length=200)
     slug = models.SlugField(
