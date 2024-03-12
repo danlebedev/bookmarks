@@ -20,3 +20,31 @@ boxHtml = `
         <div class="images"></div>
     </div>`;
 body.innerHTML += boxHtml;
+
+function bookmarkletLaunch() {
+    bookmarklet = document.getElementById('bookmarklet');
+    var imagesFound = bookmarklet.querySelector('.images');
+
+    // Очистить найденные изображения.
+    imagesFound.innerHTML = '';
+    // Показать букмарклет.
+    bookmarklet.style.display = 'block';
+    // Событие закрытия.
+    bookmarklet.querySelector('#close')
+        .addEventListener('click', function() {
+            bookmarklet.style.display = 'none'
+        });
+
+    // Найти изображения в DOM с минимальными размерами.
+    images = document.querySelectorAll('img[src$=".jpg"], img[scr$=".jpeg"], img[src$=".png"]');
+    images.forEach(image => {
+        if (image.naturalWidth >= minWidth && image.naturalHeight >= minHeight) {
+            var imageFound = document.createElement('img');
+            imageFound.src = image.src;
+            imagesFound.append(imageFound);
+        }
+    })
+}
+
+// Запустить букмарклет.
+bookmarkletLaunch();
