@@ -42,3 +42,18 @@
         </div>
     {% endwith %}
 {% endblock %}
+
+{% block domready %}
+    const ulr = '{% url "images:like" %}';
+    var options = {
+        method: 'POST',
+        headers: {'X-CSRFToken': csrftoken},
+        mode: 'same-origin'
+    }
+
+    document.querySelector('a.like')
+    .addEventListener('click', funtion(e) {
+        e.preventDefault();
+        var likeButton = this;
+    });
+{% endblock %}
