@@ -44,7 +44,7 @@
 {% endblock %}
 
 {% block domready %}
-    const ulr = '{% url "images:like" %}';
+    const url = '{% url "images:like" %}';
     var options = {
         method: 'POST',
         headers: {'X-CSRFToken': csrftoken},
