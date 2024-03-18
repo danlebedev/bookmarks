@@ -73,8 +73,8 @@ def image_like(request):
 def image_list(request):
     images = Image.objects.all()
     paginator = Paginator(images, 8)
-    page = request.Get.get('page')
-    images_only = request.Get.get('images_only')
+    page = request.GET.get('page')
+    images_only = request.GET.get('images_only')
     try:
         images = paginator.page(page)
     except PageNotAnInteger:
